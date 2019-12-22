@@ -35,7 +35,25 @@ void PrintList(Node *head){
 	}
 }
 
+int Length_itr(Node *head)
+{
+	Node *temp=head;
+	int count=0;
+	while(temp!=NULL)
+	{
+		count++;
+		temp=temp->next;
+	}
+	return count;
+}
 
+int Length_rec(Node *head)
+{
+	Node* temp=head;
+	if(temp==NULL)
+		return 0;
+	return 1+Length_rec(temp->next);
+}
 
 int main()
 {
@@ -64,6 +82,8 @@ int main()
 		head=InsertNodeAtBegin(head,data);
 	}
 	
+	cout<<"Length of List:"<<Length_itr(head)<<endl;
+	cout<<"Length using recursion:"<<Length_rec(head)<<endl;
 
 	PrintList(head);
 
