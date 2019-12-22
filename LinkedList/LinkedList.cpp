@@ -76,7 +76,15 @@ bool Search_rec(Node *head,int element){
 	}
 	return false;
 }
+// function to get the Nth node from the list;
+int getNode(Node *head,int index){
+	Node *temp=head;
+	while(index--){
+		temp=temp->next;
+	}
+	return temp->data;
 
+}
 int main()
 {
 	//Dynamically
@@ -111,6 +119,7 @@ int main()
 	cin>>x;
 	cout<<"using iterative approch"<<Search_itr(head,x)<<endl;
 	cout<<"using recursion"<<Search_rec(head,x)<<endl;
+	cout<<"Nth node from the List"<<getNode(head,3);
 
 	PrintList(head);
 
