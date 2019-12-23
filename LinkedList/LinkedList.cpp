@@ -85,6 +85,16 @@ int getNode(Node *head,int index){
 	return temp->data;
 
 }
+void Delete_List(Node *head){
+	Node *curr=head;
+	Node *temp;
+	while(curr!=NULL){
+		temp=curr->next;
+		free(curr);
+		curr=temp;
+	}
+	head=NULL;
+}
 int main()
 {
 	//Dynamically
@@ -121,6 +131,8 @@ int main()
 	cout<<"using recursion"<<Search_rec(head,x)<<endl;
 	cout<<"Nth node from the List"<<getNode(head,3);
 
+	PrintList(head);
+	Delete_List(head);
 	PrintList(head);
 
 }
