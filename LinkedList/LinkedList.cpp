@@ -95,6 +95,15 @@ void Delete_List(Node *head){
 	}
 	head=NULL;
 }
+int middle_LL(Node *head){
+	Node *fast=head;
+	Node *slow=head;
+	while(fast!=NULL && fast->next!=NULL){
+		slow=slow->next;
+		fast=fast->next->next;
+	}
+	return slow->data;
+}
 int main()
 {
 	//Dynamically
@@ -125,14 +134,17 @@ int main()
 	cout<<"Length of List:"<<Length_itr(head)<<endl;
 	cout<<"Length using recursion:"<<Length_rec(head)<<endl;
 	cout<<"Enter the number to be find in Linked List\n";
-	int x;
-	cin>>x;
-	cout<<"using iterative approch"<<Search_itr(head,x)<<endl;
-	cout<<"using recursion"<<Search_rec(head,x)<<endl;
-	cout<<"Nth node from the List"<<getNode(head,3);
+	//int x;
+	//cin>>x;
+	//cout<<"using iterative approch"<<Search_itr(head,x)<<endl;
+	//cout<<"using recursion"<<Search_rec(head,x)<<endl;
+	//cout<<"Nth node from the List"<<getNode(head,3);
 
 	PrintList(head);
-	Delete_List(head);
-	PrintList(head);
+	cout<<endl;
+	//Delete_List(head);
+	//PrintList(head);
+	cout<<middle_LL(head)<<endl;
+
 
 }
