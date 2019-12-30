@@ -104,6 +104,18 @@ int middle_LL(Node *head){
 	}
 	return slow->data;
 }
+Node* reverseLinkedList(Node *head){
+	if(head==NULL||head->next==NULL)
+		return head;
+	Node* tempAns=reverseLinkedList(head->next);
+	Node* temp=tempAns;
+	while(temp->next){
+		temp=temp->next;
+	}
+	temp->next=head;
+	head->next=NULL;
+	return tempAns;
+}
 int main()
 {
 	//Dynamically
