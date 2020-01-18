@@ -42,8 +42,26 @@ int countNode(TreeNode* root){
 	}
 	return ans;
 }
+
+void printLevelWise(TreeNode* root){
+	queue<TreeNode*> q;
+	q.push(root);
+	while(q.size()!=0){
+		TreeNode *front=q.front();
+		q.pop();
+		cout<<front->data<<" ";
+		for(int i=0;i<front->children.size();i++){
+			q.push(front->children[i]);
+		}
+	}
+}
 int main()
 {
+	// input tree 
+	//1 3 2 3 4 1 5 1 8 1 10 2 6 7 1 9 1 11 0 0 0 1 12 1 13 0
 	TreeNode* root=makeTree();
 	printTree(root);
+	cout<<endl;
+	//printNodeAt_D(root,3);
+	printLevelWise(root);
 }
