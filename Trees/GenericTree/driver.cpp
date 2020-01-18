@@ -34,6 +34,14 @@ TreeNode* makeTree(){
 	}
 	return root;
 }
+
+int countNode(TreeNode* root){
+	int ans=1;
+	for(int i=0;i<root->children.size();i++){
+		ans+=countNode(root->children[i]);
+	}
+	return ans;
+}
 int main()
 {
 	TreeNode* root=makeTree();
